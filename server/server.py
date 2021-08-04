@@ -42,10 +42,11 @@ def dial():
     return str(response)
 
 @app.route("/callStatus", methods=['POST'])
-def status():
+def callStatus():
     socketio.emit('callStatus', request.form.get('CallStatus'))
     return '', 204
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app)
+    #socketio.run(app, debug=True)
     #app.run(debug=True)
